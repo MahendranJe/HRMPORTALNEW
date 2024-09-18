@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from './Components/Login'
+import Dashboard from './Components/Dashboard';
+import Employee from './Components/Employee';
+import AddEmployee from './Components/AddEmployee';
+import Attendance from './Components/Attendance';
+import HrmPortalDashboard from './Components/HrmPortalDashboard';
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/employee" element={<Employee/>}/>
+        <Route path="/addEmployee" element={<AddEmployee/>}/>
+        <Route path='/attendance' element={<Attendance/>}/>
+        <Route path='/hrmportal' element={<HrmPortalDashboard/>}></Route>
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
